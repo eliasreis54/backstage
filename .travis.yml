@@ -7,7 +7,6 @@ cache:
   - node_modules
 
 install:
-  - npm install -g dredd
   - npm install
 
 script:
