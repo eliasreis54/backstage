@@ -15,6 +15,7 @@ script:
 after_success:
   - docker run --volume $(pwd)/src/docs:/home/node/apiary:Z giovannicuriel/aglio -i /home/node/apiary/apiary.apib -o - > ./apiary_${TRAVIS_BRANCH}.html
   - chmod +x travis/publish.sh
+  - chmod +x travis/deploy-gh-pages.sh
   - docker build -t ${TRAVIS_REPO_SLUG} -f DockerFile .
   - travis/publish.sh
   - travis/deploy-gh-pages.sh
